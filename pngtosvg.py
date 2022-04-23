@@ -4,7 +4,13 @@ import operator
 from collections import deque
 import io
 from optparse import OptionParser
-from PIL import Image
+try:
+	from PIL import Image
+except:
+	from Pillow import Image
+else:
+	print("PIL is deprecated, use Pillow")
+	print("To install Pillow: pip3 install Pillow --user")
 
 def add_tuple(a, b):
 	return tuple(map(operator.add, a, b))
